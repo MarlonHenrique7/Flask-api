@@ -12,40 +12,32 @@ Comandos importantes:
 
 Build da imagens:
 
-``
-$ docker-compose build
+```docker-compose build```
 
-``
+Executar os containers:
 
+```docker-compose up -d```
 
-Run the containers:
+Criar a database:
 
-$ docker-compose up -d
-Create the database:
+```docker-compose exec api python manage.py recreate_db```
 
-$ docker-compose exec api python manage.py recreate_db
-Seed the database:
+Alimentar a database:
 
-$ docker-compose exec api python manage.py seed_db
-Run the tests:
+```docker-compose exec api python manage.py seed_db```
 
-$ docker-compose exec api python -m pytest "src/tests" -p no:warnings
-Run the tests with coverage:
+Executar os testes:
 
-$ docker-compose exec api python -m pytest "src/tests" -p no:warnings --cov="src"
-Run the tests with coverage and generate an HTML report of the results:
+``` docker-compose exec api python -m pytest "src/tests" -p no:warnings```
 
-$ docker-compose exec api python -m pytest "src/tests" -p no:warnings --cov="src" --cov-report html
-Lint:
-
-$ docker-compose exec api flake8 src
-Run Black and isort with check options:
-
-$ docker-compose exec api black src --check
-$ docker-compose exec api isort src --check-only
-Make code changes with Black and isort:
-
-$ docker-compose exec api black src
-$ docker-compose exec api isort src
+Outros comandos:
+```
+docker-compose exec api python -m pytest "src/tests" -p no:warnings --cov="src" --cov-report html
+docker-compose exec api flake8 src
+docker-compose exec api black src --check
+docker-compose exec api isort src --check-only
+docker-compose exec api black src
+docker-compose exec api isort src
+```
 
 
