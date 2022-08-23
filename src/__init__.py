@@ -24,8 +24,8 @@ def create_app(script_info=None):
         admin.init_app(app)
 
     # register api
-    from src.api import api  # new
-    api.init_app(app)  # new
+    from src.api import api  
+    api.init_app(app)  
 
     # shell context for flask cli
     @app.shell_context_processor

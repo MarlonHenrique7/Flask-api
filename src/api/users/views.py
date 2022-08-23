@@ -12,7 +12,6 @@ from src.api.users.crud import (  # isort:skip
 
 users_namespace = Namespace("users")
 
-
 user = users_namespace.model(
     "User",
     {
@@ -27,14 +26,14 @@ user = users_namespace.model(
 class UsersList(Resource):
     @users_namespace.marshal_with(user, as_list=True)
     def get(self):
-        """Returns all users."""  # new
+        """Returns all users.""" 
         return get_all_users(), 200
 
     @users_namespace.expect(user, validate=True)
-    @users_namespace.response(201, "<user_email> was added!")  # new
-    @users_namespace.response(400, "Sorry. That email already exists.")  # new
+    @users_namespace.response(201, "<user_email> was added!")  
+    @users_namespace.response(400, "Sorry. That email already exists.") 
     def post(self):
-        """Creates a new user."""  # new
+        """Creates a new user.""" 
         post_data = request.get_json()
         username = post_data.get("username")
         email = post_data.get("email")
