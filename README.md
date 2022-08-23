@@ -12,10 +12,10 @@ Comandos importantes:
 
 Build da imagens:
 
-```
+``
 $ docker-compose build
 
-```
+``
 
 
 Run the containers:
